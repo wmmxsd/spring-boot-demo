@@ -5,7 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.web.servlet.result.StatusResultMatchers;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -35,5 +38,12 @@ class ExceptionControllerTest {
         mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/exception"))
                 .andExpect(status().is(500))
                 .andExpect(jsonPath("$.message").value("服务器出错啦"));
+    }
+
+    @Test
+    void throwResponseStatusException() throws Exception {
+        ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/responseStatusException"));
+        StatusResultMatchers mockMvcResultMatchers = MockMvcResultMatchers.status();
+        resultActions.andExpect(mockMvcResultMatchers.is(500));
     }
 }
