@@ -9,24 +9,20 @@ import javax.persistence.*;
 
 /**
  * @author wangmingming160328
- * @Description 设备实体类
- * @date @2020/5/9 15:22
+ * @Description 组织
+ * @date @2020/5/11 14:50
  */
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-//@Table(name = "device")
-public class Device {
+public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(unique = false, nullable = false)
     @NonNull
-    private String ip;
-    @Column(name = "orgId", nullable = false)
-    private Long organizationId;
-    @Column(unique = false, nullable = true)
-    private String mac;
+    private Long id;
+
+    @Column(nullable = false, unique = true)
+    @NonNull
     private String name;
 }
