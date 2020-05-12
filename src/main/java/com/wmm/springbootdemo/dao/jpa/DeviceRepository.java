@@ -1,4 +1,4 @@
-package com.wmm.springbootdemo.dao;
+package com.wmm.springbootdemo.dao.jpa;
 
 import com.wmm.springbootdemo.domain.Device;
 import org.springframework.data.domain.Page;

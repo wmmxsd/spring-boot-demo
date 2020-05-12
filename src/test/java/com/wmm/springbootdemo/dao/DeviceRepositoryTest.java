@@ -1,5 +1,6 @@
 package com.wmm.springbootdemo.dao;
 
+import com.wmm.springbootdemo.dao.jpa.DeviceRepository;
 import com.wmm.springbootdemo.domain.Device;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

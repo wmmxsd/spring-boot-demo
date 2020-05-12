@@ -1,4 +1,4 @@
-package com.wmm.springbootdemo.filter;
+package com.wmm.springbootdemo.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -23,12 +23,21 @@ public class FilterConfig {
     @Qualifier("filterTwo")
     private Filter filterTwo;
 
-    @Bean
+   /* @Bean
     public FilterRegistrationBean<Filter> setFilterOne() {
         FilterRegistrationBean<Filter> filterRegistrationBean = new FilterRegistrationBean<>();
         filterRegistrationBean.setName("过滤器1");
         filterRegistrationBean.setFilter(filterOne);
         filterRegistrationBean.setOrder(1);
         return filterRegistrationBean;
-    }
+    }*/
+
+    /*@Bean
+    public FilterRegistrationBean<Filter> setFilterTwo() {
+        FilterRegistrationBean<Filter> filterRegistrationBean = new FilterRegistrationBean<>();
+        filterRegistrationBean.setName("过滤器2");
+        filterRegistrationBean.setFilter(filterTwo);
+        filterRegistrationBean.setOrder(2);
+        return filterRegistrationBean;
+    }*/
 }
