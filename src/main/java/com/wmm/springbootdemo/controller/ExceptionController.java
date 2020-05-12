@@ -1,6 +1,5 @@
 package com.wmm.springbootdemo.controller;
 
-import com.wmm.springbootdemo.exception.ErrorCode;
 import com.wmm.springbootdemo.exception.ext.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
