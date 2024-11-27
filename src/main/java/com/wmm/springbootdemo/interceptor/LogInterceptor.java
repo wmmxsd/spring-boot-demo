@@ -24,13 +24,12 @@ public class LogInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        if (modelAndView != null) {
-            log.info("viewName = " + modelAndView.getViewName());
-            Map<String, Object> map =  modelAndView.getModel();
-            View view = modelAndView.getView();
-
-        }
-        log.info("记录" + request.getRequestURI() + "：success");
+        log.info("【url信息】");
+        log.info(request.getMethod().toUpperCase());
+        log.info(request.getRequestURI());
+        log.info("path info : " + request.getPathInfo());
+        log.info("query : " + request.getQueryString());
+        log.info("content type : " + request.getContentType());
     }
 
     @Override

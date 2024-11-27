@@ -40,6 +40,41 @@ public class UserController {
         return ResponseEntity.ok(userList);
     }
 
+    @PostMapping("/v2/users")
+    public ResponseEntity<List<User>> addUser2(User user) {
+        userList.add(user);
+        return ResponseEntity.ok(userList);
+    }
+
+    @PostMapping("/v3/users")
+    public ResponseEntity<List<User>> addUser3(@RequestParam() User user) {
+        userList.add(user);
+        return ResponseEntity.ok(userList);
+    }
+
+    @PostMapping("/v4/users")
+    public ResponseEntity<List<User>> addUser4(List<User> user) {
+        userList.addAll(user);
+        return ResponseEntity.ok(userList);
+    }
+
+    @PostMapping("/v5/users")
+    public ResponseEntity<List<User>> addUser5(@RequestBody List<User> user) {
+        userList.addAll(user);
+        return ResponseEntity.ok(userList);
+    }
+
+    @PostMapping("/v6/users")
+    public ResponseEntity<List<User>> addUser6(@RequestParam("ids[]") List<Integer> user) {
+        return ResponseEntity.ok(userList);
+    }
+
+    @PostMapping("/v7/users")
+    public ResponseEntity<List<User>> addUser7(@RequestParam("user[]") List<User> user) {
+        userList.addAll(user);
+        return ResponseEntity.ok(userList);
+    }
+
     @DeleteMapping("/v1/users/{id}")
     public ResponseEntity<List<User>> deleteUserById(@PathVariable("id") int id) {
         userList.remove(id);
@@ -51,7 +86,7 @@ public class UserController {
         return userService.selectUserByName("Daisy");
     }
 
-    @PostMapping("/v2/users")
+    @PostMapping("/v1/testInsert")
     public List<User> testInsert() {
         userService.insertService();
         return userService.selectAllUser();
